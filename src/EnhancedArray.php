@@ -84,4 +84,26 @@ class EnhancedArray
 
         return $this;
     }
+
+
+    public function getIndexOf( $value )
+    {
+        if ( ! in_array($value, $this->values) ) {
+            throw new \Exception("The array doesn't contain the value {$value}");
+        }
+
+        return array_search( $value, $this->values );
+    }
+
+
+    public function hasTheValue( $value )
+    {
+        return in_array($value, $this->values);
+    }
+
+
+    public function hasTheKey( $index )
+    {
+        return array_key_exists($index, $this->values);
+    }
 }
